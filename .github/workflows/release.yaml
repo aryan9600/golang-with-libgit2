@@ -17,7 +17,6 @@ permissions:
   id-token: write # needed for keyless signing
 
 jobs:
-
   linux-x86_64-libgit2-only:
     runs-on: ubuntu-latest
     steps:
@@ -40,6 +39,37 @@ jobs:
           name: release-artifact
           path: "*.tar.gz"
           if-no-files-found: error
+
+  windows-x86_64-libgit2-only:
+  runs-on: windows-latest
+  defaults:
+    run:
+      shell: msys2 {0}
+  steps:
+    - uses: msys2/setup-msys2@v2
+        with:
+          msystem: MINGW64
+          update: true
+          install: git mingw-w64-x86_64-cc mingw-w64-x86_64-cmake
+    - name: Checkout
+      uses: actions/checkout@v3
+    - name: Build static libraries - libgit2 only
+      run: |
+        TARGET_DIR=${GITHUB_WORKSPACE}/build/build_libgit2_only \
+        BUILD_ROOT_DIR=${GITHUB_WORKSPACE}/libgit2/build/windows \
+        ./hack/static.sh build_libgit2_only
+
+        mkdir -p ./windows-libgit2-only/
+        mv ${GITHUB_WORKSPACE}/build/build_libgit2_only/include ./windows-libgit2-only/
+        mv ${GITHUB_WORKSPACE}/build/build_libgit2_only/lib ./windows-libgit2-only/
+
+        tar -zcvf windows-x86_64-libgit2-only.tar.gz windows-libgit2-only
+        rm -rf ${GITHUB_WORKSPACE}/build ${GITHUB_WORKSPACE}/libgit2
+    - uses: actions/upload-artifact@v3
+      with:
+        name: release-artifact
+        path: "*.tar.gz"
+        if-no-files-found: error
 
   # similar to darwin-all-libs, but only compiles libgit2.
   darwin-libgit2-only:

@@ -13,13 +13,17 @@ if command -v xx-info; then
     TARGET_ARCH="$(xx-info march)"
 fi
 
-C_COMPILER="${CC:-/usr/bin/gcc}"
+if [[ $(uname -s) == *NT* ]]; then
+    C_COMPILER="${CC:-/mingw64/bin/gcc.exe}"
+else
+    C_COMPILER="${CC:-/usr/bin/gcc}"
+fi
+
 CMAKE_PARAMS=""
 if command -v xx-clang; then 
     C_COMPILER="/usr/bin/xx-clang"
     CMAKE_PARAMS="$(xx-clang --print-cmake-defines)"
 fi
-
 
 function download_source(){
     mkdir -p "$2"
@@ -60,6 +64,7 @@ function build_libgit2_only(){
     -DUSE_HTTPS:STRING:BOOL=OFF \
     -DREGEX_BACKEND:STRING=builtin \
     -DCMAKE_BUILD_TYPE="RelWithDebInfo" \
+    -DWINHTTP=OFF \
     ..
 
     cmake --build . --target install
