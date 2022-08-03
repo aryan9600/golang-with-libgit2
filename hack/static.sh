@@ -35,7 +35,7 @@ function download_source(){
     if [[ $(uname -s) == *NT* ]]; then
         export MSYS=winsymlinks:native
     fi
-    tar -C "$2" --strip 1 -xzvf "$2/source.tar.gz"
+    tar -C $2 --strip 1 -xzvf $2/source.tar.gz
     rm "$2/source.tar.gz"
 }
 
