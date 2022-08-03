@@ -36,6 +36,9 @@ function download_source(){
 function build_libgit2_only(){
     download_source "${LIBGIT2_URL}" "${SRC_DIR}/libgit2"
 
+    rm ${SRC_DIR}/libgit2/src/win32/thread.c
+    rm ${SRC_DIR}/libgit2/src/win32/thread.h
+
     pushd "${SRC_DIR}/libgit2"
 
     mkdir -p build
@@ -58,7 +61,6 @@ function build_libgit2_only(){
     -DCMAKE_POSITION_INDEPENDENT_CODE:BOOL=ON \
     -DCMAKE_C_FLAGS=-fPIC \
     -DUSE_SSH:BOOL=OFF \
-    -DHAVE_LIBSSH2_MEMORY_CREDENTIALS:BOOL=OFF \
     -DDEPRECATE_HARD:BOOL=ON \
     -DUSE_BUNDLED_ZLIB:BOOL=ON \
     -DUSE_HTTPS:STRING:BOOL=OFF \
