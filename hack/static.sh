@@ -28,7 +28,13 @@ fi
 function download_source(){
     mkdir -p "$2"
 
-    curl --max-time 120 -o "$2/source.tar.gz" -LO "$1"
+    curl --max-time 120 -o "$2/source.tar.gz" -L "$1"
+
+    # The downloaded tarball contains symlinks, which needs this
+    # set in the environment on Windows MSYS2 for proper handling.
+    if [[ $(uname -s) == *NT* ]]; then
+        export MSYS=winsymlinks:native
+    fi
     tar -C "$2" --strip 1 -xzvf "$2/source.tar.gz"
     rm "$2/source.tar.gz"
 }
