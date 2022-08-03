@@ -43,6 +43,7 @@ jobs:
     steps:
       - uses: msys2/setup-msys2@v2
         with:
+          release: false
           msystem: MINGW64
           update: true
           install: git mingw-w64-x86_64-cc mingw-w64-x86_64-cmake
