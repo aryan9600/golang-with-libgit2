@@ -6,11 +6,6 @@ on:
       - '**'
 
   workflow_dispatch:
-    inputs:
-      tag:
-        description: 'release prefix'
-        default: 'rc'
-        required: true
 
 permissions:
   contents: write # needed to write releases
