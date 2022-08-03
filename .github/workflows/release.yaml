@@ -124,6 +124,7 @@ jobs:
       [
         linux-x86_64-libgit2-only,
         darwin-libgit2-only,
+        windows-x86_64-libgit2-only
       ]
     if: ${{ always() && contains(join(needs.*.result, ','), 'success') }}
     steps:
