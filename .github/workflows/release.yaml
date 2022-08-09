@@ -37,9 +37,6 @@ jobs:
 
   windows-x86_64-libgit2-only:
     runs-on: windows-latest
-    defaults:
-      run:
-        shell: msys2 {0}
     steps:
       - uses: msys2/setup-msys2@v2
         with:
@@ -50,8 +47,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
       - name: Build static libraries - libgit2 only
+        shell: msys2 {0}
         run: |
-          TARGET_DIR=${GITHUB_WORKSPACE}/build/build_libgit2_only \
+          whoami
+          pwd
+          TARGET_DIR=${GITHUB_WORKSPACE}\build/build_libgit2_only \
           BUILD_ROOT_DIR=${GITHUB_WORKSPACE}/libgit2/build/windows \
           ./hack/static.sh build_libgit2_only
 
