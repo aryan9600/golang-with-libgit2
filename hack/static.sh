@@ -34,8 +34,10 @@ function download_source(){
     # set in the environment on Windows MSYS2 for proper handling.
     if [[ $(uname -s) == *NT* ]]; then
         export MSYS=winsymlinks:native
+        tar -C $2 --strip 1 --force-local -xzvf $2/source.tar.gz
+    else
+        tar -C $2 --strip 1 -xzvf $2/source.tar.gz
     fi
-    tar -C $2 --strip 1 -xzvf $2/source.tar.gz
     rm "$2/source.tar.gz"
 }
 
