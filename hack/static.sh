@@ -2,7 +2,7 @@
 
 set -euxo pipefail
 
-LIBGIT2_URL="${LIBGIT2_URL:-https://github.com/libgit2/libgit2/archive/refs/tags/v1.3.2.tar.gz}"
+LIBGIT2_URL="${LIBGIT2_URL:-https://github.com/libgit2/libgit2/archive/refs/tags/v1.5.0.tar.gz}"
 
 TARGET_DIR="${TARGET_DIR:-/usr/local/$(xx-info triple)}"
 BUILD_ROOT_DIR="${BUILD_ROOT_DIR:-/build}"
