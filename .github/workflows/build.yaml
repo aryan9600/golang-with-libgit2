@@ -11,6 +11,13 @@ on:
   pull_request:
     paths-ignore:
       - README.md
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: 'image tag prefix'
+        default: 'rc'
+        required: true
+
 
 permissions:
   packages: write # needed for ghcr access
