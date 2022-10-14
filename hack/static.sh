@@ -77,7 +77,7 @@ function build_libgit2_only(){
     -DCMAKE_BUILD_TYPE="RelWithDebInfo" \
     -DBUILD_TESTS:BOOL=OFF \
     -DPYTHON_EXECUTABLE="/usr/bin/python3" \
-    -DWINHTTP=OFF \
+    -DUSE_WINHTTP=OFF \
     ..
 
     cmake --build . --target install
