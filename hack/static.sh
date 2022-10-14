@@ -44,8 +44,8 @@ function download_source(){
 function build_libgit2_only(){
     download_source "${LIBGIT2_URL}" "${SRC_DIR}/libgit2"
 
-    rm ${SRC_DIR}/libgit2/src/win32/thread.c
-    rm ${SRC_DIR}/libgit2/src/win32/thread.h
+    rm ${SRC_DIR}/libgit2/src/util/win32/thread.c
+    rm ${SRC_DIR}/libgit2/src/util/win32/thread.h
 
     pushd "${SRC_DIR}/libgit2"
 
