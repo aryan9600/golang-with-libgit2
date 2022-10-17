@@ -16,6 +16,7 @@ require (
 	github.com/Microsoft/go-winio v0.5.2 // indirect
 	github.com/ProtonMail/go-crypto v0.0.0-20220407094043-a94812496cf5 // indirect
 	github.com/acomagu/bufpipe v1.0.3 // indirect
+	github.com/cyphar/filepath-securejoin v0.2.3 // indirect
 	github.com/emirpasic/gods v1.12.0 // indirect
 	github.com/fluxcd/gitkit v0.6.0 // indirect
 	github.com/go-git/gcfg v1.5.0 // indirect
@@ -36,7 +37,7 @@ require (
 	github.com/sergi/go-diff v1.2.0 // indirect
 	github.com/xanzy/ssh-agent v0.3.1 // indirect
 	golang.org/x/net v0.0.0-20220412020605-290c469a71a5 // indirect
-	golang.org/x/sys v0.0.0-20220412211240-33da011f77ad // indirect
+	golang.org/x/sys v0.0.0-20220503163025-988cb79eb6c6 // indirect
 	golang.org/x/text v0.3.7 // indirect
 	gopkg.in/inf.v0 v0.9.1 // indirect
 	gopkg.in/warnings.v0 v0.1.2 // indirect
