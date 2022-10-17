@@ -47,7 +47,7 @@ jobs:
           release: false
           msystem: MINGW64
           update: true
-          install: git mingw-w64-x86_64-cc mingw-w64-x86_64-cmake mingw-w64-x86_64-go
+          install: git make mingw-w64-x86_64-cc mingw-w64-x86_64-cmake mingw-w64-x86_64-go
       - name: Checkout
         uses: actions/checkout@v3
       - name: Test build script for windows-amd64
