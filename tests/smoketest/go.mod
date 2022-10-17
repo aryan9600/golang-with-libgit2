@@ -5,7 +5,7 @@ go 1.19
 replace github.com/libgit2/git2go/v34 => github.com/fluxcd/git2go/v34 v34.0.0
 
 require (
-	github.com/fluxcd/pkg/gittestserver v0.5.2
+	github.com/fluxcd/pkg/gittestserver v0.7.0
 	github.com/fluxcd/pkg/ssh v0.3.2
 	github.com/fluxcd/source-controller v0.24.4
 	github.com/libgit2/git2go/v34 v34.0.0
@@ -17,6 +17,7 @@ require (
 	github.com/ProtonMail/go-crypto v0.0.0-20220407094043-a94812496cf5 // indirect
 	github.com/acomagu/bufpipe v1.0.3 // indirect
 	github.com/emirpasic/gods v1.12.0 // indirect
+	github.com/fluxcd/gitkit v0.6.0 // indirect
 	github.com/go-git/gcfg v1.5.0 // indirect
 	github.com/go-git/go-billy/v5 v5.3.1 // indirect
 	github.com/go-git/go-git/v5 v5.4.2 // indirect
@@ -33,7 +34,6 @@ require (
 	github.com/modern-go/concurrent v0.0.0-20180306012644-bacd9c7ef1dd // indirect
 	github.com/modern-go/reflect2 v1.0.2 // indirect
 	github.com/sergi/go-diff v1.2.0 // indirect
-	github.com/sosedoff/gitkit v0.3.0 // indirect
 	github.com/xanzy/ssh-agent v0.3.1 // indirect
 	golang.org/x/net v0.0.0-20220412020605-290c469a71a5 // indirect
 	golang.org/x/sys v0.0.0-20220412211240-33da011f77ad // indirect

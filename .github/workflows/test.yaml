@@ -9,6 +9,7 @@ on:
   pull_request:
     paths-ignore:
       - README.md
+  workflow_dispatch:
 
 permissions: {}
 
@@ -33,4 +34,22 @@ jobs:
       - name: Test build script for linux-amd64
         run: |
           rm -rf ${GITHUB_WORKSPACE}/build
+          make dev-test
+
+  windows-dev-test:
+    runs-on: windows-latest
+    defaults:
+      run:
+        shell: msys2 {0}
+    steps:
+      - uses: msys2/setup-msys2@v2
+        with:
+          release: false
+          msystem: MINGW64
+          update: true
+          install: git mingw-w64-x86_64-cc mingw-w64-x86_64-cmake mingw-w64-x86_64-go
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Test build script for windows-amd64
+        run: |
           make dev-test
